@@ -12,7 +12,7 @@ proto_xmm_init_config() {
 	proto_config_add_string "device:device"
 	proto_config_add_string "apn"
 	proto_config_add_string "pdp"
-	proto_config_add_string "band"
+	proto_config_add_string "useband"
 	proto_config_add_int "delay"
 	proto_config_add_string "username"
 	proto_config_add_string "password"
@@ -74,7 +74,7 @@ proto_xmm_setup() {
 		esac
 		CID=$profile AUTH=$AUTH USER="$username" PASS="$password" gcom -d "$device" -s /etc/gcom/xmm-auth.gcom >/dev/null 2>&1
 	}
-	CID=$profile APN=$apn PDP=$pdp BAND=$band gcom -d $device -s /etc/gcom/xmm-connect.gcom >/dev/null 2>&1
+	CID=$profile APN=$apn PDP=$pdp BAND=$useband gcom -d $device -s /etc/gcom/xmm-connect.gcom >/dev/null 2>&1
 	proto_init_update "$ifname" 1
 	proto_add_data
 	proto_close_data
