@@ -97,6 +97,9 @@ return network.registerProtocol('xmm', {
 		o.value('ipv6', 'IPv6');
 		o.default = 'ipv4v6';
 
+		o = s.taboption('general', form.Value, 'band', _('Band'), _('Default LTE prefered'));
+		o.default = 'AT+XACT=2,,,0';
+
 		o = s.taboption('advanced', form.Flag, 'defaultroute',
 			_('Use default gateway'),
 			_('If unchecked, no default route is configured'));
