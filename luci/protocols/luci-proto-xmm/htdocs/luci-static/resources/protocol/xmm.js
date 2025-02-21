@@ -83,13 +83,8 @@ return network.registerProtocol('xmm', {
 		o.value('chap', 'CHAP');
 		o.default = 'auto';
 
-		o = s.taboption('advanced', form.Value, 'delay', _('Modem init timeout'), _('Maximum amount of seconds to wait for the modem to become ready'));
-		o.placeholder = '10';
-		o.datatype    = 'min(1)';
-
-		o = s.taboption('advanced', form.Value, 'mtu', _('Override MTU'));
-		o.placeholder = dev ? (dev.getMTU() || '1500') : '1500';
-		o.datatype    = 'max(9200)';
+		o = s.taboption('general', form.Value, 'useband', _('Band'));
+		o.placeholder = 'AT+XACT=2,,,0';
 
 		o = s.taboption('general', form.ListValue, 'pdp', _('PDP Type'));
 		o.value('ipv4v6', 'IPv4/IPv6');
@@ -97,8 +92,13 @@ return network.registerProtocol('xmm', {
 		o.value('ipv6', 'IPv6');
 		o.default = 'ipv4v6';
 
-		o = s.taboption('general', form.Value, 'band', _('Band'), _('Default LTE prefered'));
-		o.default = 'AT+XACT=2,,,0';
+		o = s.taboption('advanced', form.Value, 'delay', _('Modem init timeout'), _('Maximum amount of seconds to wait for the modem to become ready'));
+		o.placeholder = '10';
+		o.datatype    = 'min(1)';
+
+		o = s.taboption('advanced', form.Value, 'mtu', _('Override MTU'));
+		o.placeholder = dev ? (dev.getMTU() || '1500') : '1500';
+		o.datatype    = 'max(9200)';
 
 		o = s.taboption('advanced', form.Flag, 'defaultroute',
 			_('Use default gateway'),
