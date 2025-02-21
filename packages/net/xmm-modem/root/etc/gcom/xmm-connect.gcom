@@ -5,6 +5,8 @@ opengt
  waitquiet 0.2 0.2
 
  send "AT+CMEE=2^m"
+ send $env("BAND")
+ send "^m"
  send "AT+COPS=0^m"
  send "AT+CGPIAF=1,0,0,0^m"
  send "AT+XDNS="
