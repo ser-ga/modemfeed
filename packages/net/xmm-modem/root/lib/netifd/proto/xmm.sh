@@ -25,8 +25,8 @@ proto_xmm_setup() {
 	local interface="$1"
 	local devname devpath hwaddr ip4addr ip4mask dns1 dns2 defroute lladdr
 	local name ifname proto extendprefix auth username password
-	local device ifname auth username password apn pdp profile pincode delay $PROTO_DEFAULT_OPTIONS
-	json_get_vars device ifname auth username password apn pdp profile pincode delay $PROTO_DEFAULT_OPTIONS
+	local device ifname auth username password apn pdp useband profile pincode delay $PROTO_DEFAULT_OPTIONS
+	json_get_vars device ifname auth username password apn pdp useband profile pincode delay $PROTO_DEFAULT_OPTIONS
 	[ "$profile" = "" ] && profile="1"
 	[ "$metric" = "" ] && metric="0"
 	[ -z $ifname ] && {
