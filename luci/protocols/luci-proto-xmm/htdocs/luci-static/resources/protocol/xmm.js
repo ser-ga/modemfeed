@@ -83,8 +83,7 @@ return network.registerProtocol('xmm', {
 		o.value('chap', 'CHAP');
 		o.default = 'auto';
 
-		o = s.taboption('general', form.Value, 'useband', _('Band'));
-		o.placeholder = 'AT+XACT=2,,,0';
+		o = s.taboption('general', form.Value, 'useband', _('Use band'));
 
 		o = s.taboption('general', form.ListValue, 'pdp', _('PDP Type'));
 		o.value('ipv4v6', 'IPv4/IPv6');
